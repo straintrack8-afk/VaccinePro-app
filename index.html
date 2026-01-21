@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaccinePro - Production Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- WELCOME PAGE -->
+    <div id="welcomePage" class="welcome-page">
+      <div class="welcome-content">
+        <!-- Logo -->
+        <div class="logo-container">
+          <div class="logo-icon">🧬</div>
+        </div>
+        
+        <!-- App Title -->
+        <h1 class="app-title">VaccinePro</h1>
+        <p class="app-subtitle">Production Management System</p>
+        
+        <!-- Welcome Card -->
+        <div class="welcome-card">
+          <h2>Welcome Back!</h2>
+          <p>Monitor and manage your vaccine production processes with real-time tracking, quality control, and performance analytics.</p>
+          
+          <!-- Quick Stats -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Active Batches</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-value">98.5%</div>
+              <div class="stat-label">Quality Rate</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Get Started Button -->
+        <button id="getStartedBtn" class="btn-primary">
+          Get Started
+          <span>→</span>
+        </button>
+        
+        <!-- Version -->
+        <p class="version-text">Version 1.0.0</p>
+      </div>
+    </div>
+    
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="dashboard">
+      
+      <!-- App Header -->
+      <div class="app-header">
+        <div class="header-top">
+          <div class="header-title">
+            <h1>VaccinePro</h1>
+            <p id="currentDate">Tuesday, Jan 21</p>
+          </div>
+          <div class="header-actions">
+            <button class="icon-btn" onclick="handleNotificationClick()">
+              🔔
+              <span class="notification-badge">3</span>
+            </button>
+            <button class="icon-btn" onclick="handleSettingsClick()">⚙️</button>
+          </div>
+        </div>
+        
+        <!-- Product Selector -->
+        <div class="product-selector">
+          <div class="product-chip ai-h9n2 active" data-product="AI_H9N2">AI H9N2</div>
+          <div class="product-chip ai-h5n1" data-product="AI_H5N1">AI H5N1</div>
+          <div class="product-chip ndv" data-product="NDV">NDV</div>
+          <div class="product-chip ibv" data-product="IBV">IBV</div>
+          <div class="product-chip ibdv" data-product="IBDV">IBDV</div>
+        </div>
+      </div>
+      
+      <!-- Content Area -->
+      <div class="content">
+        
+        <!-- TODAY TAB -->
+        <div id="todayTab" class="tab-content">
+          
+          <!-- Critical Tasks Panel -->
+          <div class="critical-panel">
+            <div class="critical-header">
+              <span>⚠️</span>
+              <h3>Critical Attention Required</h3>
+              <span class="critical-count">3 items</span>
+            </div>
+            
+            <div class="critical-task" data-product="AI_H9N2">
+              <div class="task-header">
+                <div>
+                  <div class="task-title">QC Sterility Test Due</div>
+                  <div class="task-subtitle">Batch: AI-H9N2-240121-001</div>
+                </div>
+                <div class="product-badge" style="border-color: #3B82F6; color: #3B82F6;">
+                  <span class="product-dot" style="background: #3B82F6;"></span>
+                  AI_H9N2
+                </div>
+              </div>
+              <div class="task-footer">
+                <span class="priority-badge priority-critical">CRITICAL</span>
+                <span class="overdue-text">Overdue: 2 hours</span>
+              </div>
+            </div>
+            
+            <div class="critical-task" data-product="AI_H5N1">
+              <div class="task-header">
+                <div>
+                  <div class="task-title">Equipment Calibration Overdue</div>
+                  <div class="task-subtitle">Equipment: Incubator INC-003</div>
+                </div>
+                <div class="product-badge" style="border-color: #8B5CF6; color: #8B5CF6;">
+                  <span class="product-dot" style="background: #8B5CF6;"></span>
+                  AI_H5N1
+                </div>
+              </div>
+              <div class="task-footer">
+                <span class="priority-badge priority-critical">CRITICAL</span>
+                <span class="overdue-text">Overdue: 1 day</span>
+              </div>
+            </div>
+            
+            <div class="critical-task" data-product="NDV">
+              <div class="task-header">
+                <div>
+                  <div class="task-title">Material Expiry Alert</div>
+                  <div class="task-subtitle">Material: TPB Solution</div>
+                </div>
+                <div class="product-badge" style="border-color: #10B981; color: #10B981;">
+                  <span class="product-dot" style="background: #10B981;"></span>
+                  NDV
+                </div>
+              </div>
+              <div class="task-footer">
+                <span class="priority-badge priority-high">HIGH</span>
+                <span class="overdue-text">Expires: 2 days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Today's Tasks -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Today's Schedule</h3>
+              <p>5 of 5 tasks • 1 completed</p>
+            </div>
+            <div class="card-body">
+              
+              <div class="task-card completed" data-product="AI_H9N2">
+                <div class="task-time">08:00</div>
+                <div class="task-content">
+                  <div class="task-content-header">
+                    <div class="task-title">Start Egg Incubation</div>
+                    <div class="product-badge" style="border-color: #3B82F6; color: #3B82F6;">
+                      <span class="product-dot" style="background: #3B82F6;"></span>
+                      AI_H9N2
+                    </div>
+                  </div>
+                  <div class="task-info">AI-H9N2-240122-001 • Duration: 30 min</div>
+                  <div class="task-assignee">Assigned: Dr. Smith</div>
+                  <div class="status-badge status-completed">
+                    ✓ Completed
+                  </div>
+                </div>
+              </div>
+              
+              <div class="task-card in-progress" data-product="AI_H5N1">
+                <div class="task-time">09:30</div>
+                <div class="task-content">
+                  <div class="task-content-header">
+                    <div class="task-title">Virus Injection Process</div>
+                    <div class="product-badge" style="border-color: #8B5CF6; color: #8B5CF6;">
+                      <span class="product-dot" style="background: #8B5CF6;"></span>
+                      AI_H5N1
+                    </div>
+                  </div>
+                  <div class="task-info">AI-H5N1-240121-002 • Duration: 2 hours</div>
+                  <div class="task-assignee">Assigned: Tech. Johnson</div>
+                  <div class="status-badge status-in-progress">
+                    ▶ In Progress
+                  </div>
+                </div>
+              </div>
+              
+              <div class="task-card" data-product="NDV">
+                <div class="task-time">11:00</div>
+                <div class="task-content">
+                  <div class="task-content-header">
+                    <div class="task-title">QC Purity Test</div>
+                    <div class="product-badge" style="border-color: #10B981; color: #10B981;">
+                      <span class="product-dot" style="background: #10B981;"></span>
+                      NDV
+                    </div>
+                  </div>
+                  <div class="task-info">NDV-240120-003 • Duration: 45 min</div>
+                  <div class="task-assignee">Assigned: QC Team A</div>
+                  <div class="status-badge status-pending">
+                    ⏱ Pending
+                  </div>
+                </div>
+              </div>
+              
+              <div class="task-card" data-product="AI_H9N2">
+                <div class="task-time">14:00</div>
+                <div class="task-content">
+                  <div class="task-content-header">
+                    <div class="task-title">Harvest Collection</div>
+                    <div class="product-badge" style="border-color: #3B82F6; color: #3B82F6;">
+                      <span class="product-dot" style="background: #3B82F6;"></span>
+                      AI_H9N2
+                    </div>
+                  </div>
+                  <div class="task-info">AI-H9N2-240119-004 • Duration: 1.5 hours</div>
+                  <div class="task-assignee">Assigned: Tech. Williams</div>
+                  <div class="status-badge status-pending">
+                    ⏱ Pending
+                  </div>
+                </div>
+              </div>
+              
+              <div class="task-card" data-product="ALL">
+                <div class="task-time">15:30</div>
+                <div class="task-content">
+                  <div class="task-content-header">
+                    <div class="task-title">Equipment Maintenance</div>
+                  </div>
+                  <div class="task-info">Centrifuge CF-001 • Duration: 1 hour</div>
+                  <div class="task-assignee">Assigned: Maintenance</div>
+                  <div class="status-badge status-pending">
+                    ⏱ Pending
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- Resource Status -->
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-header">
+                <span style="font-size: 20px;">👥</span>
+                <span class="resource-label">Personnel</span>
+              </div>
+              <div class="resource-value">8/12</div>
+              <div class="resource-subtitle">Available</div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-header">
+                <span style="font-size: 20px;">⚙️</span>
+                <span class="resource-label">Equipment</span>
+              </div>
+              <div class="resource-value">15/20</div>
+              <div class="resource-subtitle">Ready</div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-header">
+                <span style="font-size: 20px;">🌡️</span>
+                <span class="resource-label">Environment</span>
+              </div>
+              <div class="resource-value">22.5°C</div>
+              <div class="resource-subtitle">Optimal</div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-header">
+                <span style="font-size: 20px;">📦</span>
+                <span class="resource-label">Materials</span>
+              </div>
+              <div class="resource-value">12</div>
+              <div class="resource-subtitle">Adequate Stock</div>
+            </div>
+          </div>
+          
+          <!-- Week Ahead -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Week Ahead</h3>
+              <p>Upcoming tasks and critical deadlines</p>
+            </div>
+            <div class="card-body">
+              
+              <div class="week-day">
+                <div class="week-day-info">
+                  <h4>Tomorrow</h4>
+                  <p>12 tasks scheduled</p>
+                </div>
+                <div class="week-day-actions">
+                  <span class="critical-badge">1 critical</span>
+                  <span>›</span>
+                </div>
+              </div>
+              
+              <div class="week-day">
+                <div class="week-day-info">
+                  <h4>Wednesday</h4>
+                  <p>8 tasks scheduled</p>
+                </div>
+                <div class="week-day-actions">
+                  <span>›</span>
+                </div>
+              </div>
+              
+              <div class="week-day">
+                <div class="week-day-info">
+                  <h4>Thursday</h4>
+                  <p>15 tasks scheduled</p>
+                </div>
+                <div class="week-day-actions">
+                  <span class="critical-badge">2 critical</span>
+                  <span>›</span>
+                </div>
+              </div>
+              
+              <div class="week-day">
+                <div class="week-day-info">
+                  <h4>Friday</h4>
+                  <p>10 tasks scheduled</p>
+                </div>
+                <div class="week-day-actions">
+                  <span class="critical-badge">1 critical</span>
+                  <span>›</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- BATCHES TAB -->
+        <div id="batchesTab" class="tab-content hidden">
+          <div class="card">
+            <div class="card-body text-center" style="padding: 48px 24px;">
+              <div style="font-size: 64px; margin-bottom: 16px;">🧪</div>
+              <h3 style="margin-bottom: 8px;">Batch Management</h3>
+              <p style="color: var(--neutral-gray);">Production tracking and monitoring</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- RESOURCES TAB -->
+        <div id="resourcesTab" class="tab-content hidden">
+          <div class="card">
+            <div class="card-body text-center" style="padding: 48px 24px;">
+              <div style="font-size: 64px; margin-bottom: 16px;">📦</div>
+              <h3 style="margin-bottom: 8px;">Resource Management</h3>
+              <p style="color: var(--neutral-gray);">Equipment and inventory tracking</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ANALYTICS TAB -->
+        <div id="analyticsTab" class="tab-content hidden">
+          <div class="card">
+            <div class="card-body text-center" style="padding: 48px 24px;">
+              <div style="font-size: 64px; margin-bottom: 16px;">📊</div>
+              <h3 style="margin-bottom: 8px;">Analytics & Reports</h3>
+              <p style="color: var(--neutral-gray);">Performance metrics and insights</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <button class="nav-item active" data-tab="today">
+          <span style="font-size: 20px;">📅</span>
+          <span>Today</span>
+        </button>
+        <button class="nav-item" data-tab="batches">
+          <span style="font-size: 20px;">🧪</span>
+          <span>Batches</span>
+        </button>
+        <button class="nav-item" data-tab="resources">
+          <span style="font-size: 20px;">📦</span>
+          <span>Resources</span>
+        </button>
+        <button class="nav-item" data-tab="analytics">
+          <span style="font-size: 20px;">📊</span>
+          <span>Analytics</span>
+        </button>
+      </div>
+      
+      <!-- FAB -->
+      <button class="fab" onclick="handleFabClick()">
+        <span style="font-size: 24px;">+</span>
+      </button>
+      
+    </div>
+    
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
